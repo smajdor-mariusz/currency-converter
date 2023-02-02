@@ -13,7 +13,7 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-image: url('./money.jpg');
+  background-image: url('../money.jpg');
   background-position: center;
   background-size: cover;
   font-family: 'Roboto Condensed', sans-serif;
