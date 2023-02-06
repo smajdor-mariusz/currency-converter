@@ -6,6 +6,14 @@ async function renderCurrencies() {
 
   const currencies = await getCurrencies();
 
+  if (typeof currencies === 'string') {
+    const formEl = document.querySelector('[data-form]');
+    while (formEl.firstChild) {
+      formEl.firstChild.remove();
+    }
+    formEl.innerText = currencies;
+  }
+
   createOptionEl(currencies, convertFromEl);
   createOptionEl(currencies, convertToEl);
 }
