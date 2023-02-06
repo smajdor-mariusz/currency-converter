@@ -6,6 +6,6 @@ export async function getCurrencies() {
     const data = await response.json();
     return data.rates;
   } catch (err) {
-    return `Could not load the currencies, try again later! ${err}`;
+    return `Could not load the currencies, please try again later! ${err}`;
   }
 }
