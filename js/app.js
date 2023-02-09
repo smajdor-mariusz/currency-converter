@@ -24,10 +24,24 @@ function createOptionEl(currencies, selectEl) {
   Object.entries(currencies).forEach(currency => {
     const optionEl = document.createElement('option');
     optionEl.value = currency[1];
+    optionEl.name = currency[0];
     optionEl.innerText = currency[0];
 
     selectEl.appendChild(optionEl);
   });
+}
+
+function createResultEl(result) {
+  const getOptionName = selectEl =>
+    selectEl.options[selectEl.selectedIndex].name;
+
+  const resultEl = document.createElement('span');
+  resultEl.classList.add('form__result');
+  resultEl.innerText = `${amountEl.value} ${getOptionName(
+    convertFromEl
+  )} = ${result} ${getOptionName(convertToEl)}`;
+
+  return resultEl;
 }
 
 function init() {
@@ -35,6 +49,7 @@ function init() {
     e.preventDefault();
 
     const result = (amountEl.value * convertToEl.value) / convertFromEl.value;
+    formEl.appendChild(createResultEl(result));
   });
 
   renderCurrencies();
