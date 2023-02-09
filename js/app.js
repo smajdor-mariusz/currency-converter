@@ -50,6 +50,8 @@ function init() {
 
     const result = (amountEl.value * convertToEl.value) / convertFromEl.value;
     formEl.appendChild(createResultEl(result));
+    amountEl.value = null;
+    amountEl.focus();
   });
 
   renderCurrencies();
