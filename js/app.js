@@ -1,9 +1,11 @@
 import { getCurrencies } from './getCurrencies.js';
 
-async function renderCurrencies() {
-  const convertFromEl = document.querySelector('[data-convert-from]');
-  const convertToEl = document.querySelector('[data-convert-to]');
+const formEl = document.querySelector('[data-form]');
+const amountEl = document.querySelector('[data-amount]');
+const convertFromEl = document.querySelector('[data-convert-from]');
+const convertToEl = document.querySelector('[data-convert-to]');
 
+async function renderCurrencies() {
   const currencies = await getCurrencies();
 
   if (typeof currencies === 'string') {
@@ -29,6 +31,12 @@ function createOptionEl(currencies, selectEl) {
 }
 
 function init() {
+  formEl.addEventListener('submit', e => {
+    e.preventDefault();
+
+    const result = (amountEl.value * convertToEl.value) / convertFromEl.value;
+  });
+
   renderCurrencies();
 }
 
