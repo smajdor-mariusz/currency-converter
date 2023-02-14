@@ -4,6 +4,7 @@ const formEl = document.querySelector('[data-form]');
 const amountEl = document.querySelector('[data-amount]');
 const convertFromEl = document.querySelector('[data-convert-from]');
 const convertToEl = document.querySelector('[data-convert-to]');
+const infoEl = document.querySelector('[data-info]');
 
 async function renderCurrencies() {
   const currencies = await getCurrencies();
@@ -35,6 +36,10 @@ function createResultEl(result) {
   const getOptionName = selectEl =>
     selectEl.options[selectEl.selectedIndex].name;
 
+  if (infoEl.childElementCount === 2) {
+    infoEl.firstChild.remove();
+  }
+
   const resultEl = document.createElement('span');
   resultEl.innerHTML = `<strong>${amountEl.value}</strong> ${getOptionName(
     convertFromEl
@@ -44,7 +49,6 @@ function createResultEl(result) {
 }
 
 function init() {
-  const infoEl = document.querySelector('[data-info]');
   formEl.addEventListener('submit', e => {
     e.preventDefault();
 
