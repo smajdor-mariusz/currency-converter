@@ -1,0 +1,12 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin: 30px;
+  padding: 20px 30px;
+  max-width: 565px;
+  width: 100%;
+  border-radius: 3px;
+  box-shadow: #00000040 0px 5px 10px;
+  background-color: #fcfcfc;
+}

@@ -1,8 +1,6 @@
 export async function getCurrencies() {
   try {
-    const response = await fetch(
-      'https://api.exchangerate.host/latest?base=PLN'
-    );
+    const response = await fetch('https://api.exchangerate.host/latest');
     const data = await response.json();
     return data.rates;
   } catch (err) {

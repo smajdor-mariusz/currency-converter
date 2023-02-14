@@ -36,20 +36,20 @@ function createResultEl(result) {
     selectEl.options[selectEl.selectedIndex].name;
 
   const resultEl = document.createElement('span');
-  resultEl.classList.add('form__result');
-  resultEl.innerText = `${amountEl.value} ${getOptionName(
+  resultEl.innerHTML = `<strong>${amountEl.value}</strong> ${getOptionName(
     convertFromEl
-  )} = ${result} ${getOptionName(convertToEl)}`;
+  )} = <strong>${result}</strong> ${getOptionName(convertToEl)}`;
 
   return resultEl;
 }
 
 function init() {
+  const infoEl = document.querySelector('[data-info]');
   formEl.addEventListener('submit', e => {
     e.preventDefault();
 
     const result = (amountEl.value * convertToEl.value) / convertFromEl.value;
-    formEl.appendChild(createResultEl(result));
+    infoEl.prepend(createResultEl(result));
     amountEl.value = null;
     amountEl.focus();
   });
