@@ -41,6 +41,7 @@ function createResultEl(result) {
   }
 
   const resultEl = document.createElement('span');
+  resultEl.classList.add('info__calculated');
   resultEl.innerHTML = `<strong>${amountEl.value}</strong> ${getOptionName(
     convertFromEl
   )} = <strong>${result}</strong> ${getOptionName(convertToEl)}`;
